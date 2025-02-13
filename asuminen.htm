@@ -2,45 +2,76 @@
 <html lang="fi">
 <head>
   
+  <!-- Sivun metatiedot -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Asuminen</title>
-  <meta name="keywords" content="Siltamäki, asuminen, ulkoilu, harrastaminen, luonto, liikenneyhteydet, kylä, maalla, yhteisöllisyys">
+  <meta name="keywords" content="Siltamäki, asuminen, omakotitalo, rivitalo, kerrostalo, ulkoilu, harrastaminen, luonto, liikenneyhteydet, kylä, maalla, yhteisöllisyys">
   <meta name="description" content="Siltamäen esittelysivusto">
 
   <meta name="author" content="Jyri">
 
+  <!-- Bootstrap- ja fonttikirjastolinkit -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Schibsted Grotesk:100' rel='stylesheet' type='text/css'>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- CSS -->
   <style>
 
-   
+    body{
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-    
-    footer {
-        
-        color: #60cf34;
-        padding: 30px 0;
+    /* Navikointipalkin tekstien muotoilu */
+    .navbar {
+      font-family: "Schibsted Grotesk", sans-serif !important;
+      font-weight: bold;
+      font-size: 22px !important;
+    }
+
+    /* Haitarin nappien tekstien muotoilu */
+    .accordion-button {
+      font-family: "Schibsted Grotesk", sans-serif !important;
+      font-weight: bold;
+      font-size: 18px !important;
+    }
+
+    /* Haitarin rungon tekstien muotoilu */
+    .accordion-body {
+      font-family: "Schibsted Grotesk", sans-serif !important;
+      font-weight: normal;
+      font-size: 18px !important;
     }
     
-   
+    /* Footerin sijainti, värit ja reunat */
+    footer {  
+      margin-top: 15px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      color: #60cf34;
+      padding: 30px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.74);
+      background-color:rgb(24, 29, 34)
 
-    
-
+    }
+      
   </style>
 
 </head>
+  <!-- Navikointipalkin muotoilu ja linkit -->
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50" position="relative">
   
   <nav class="navbar navbar-expand-sm  navbar-light sticky-top" style="background-color: #6ce01e" >
     
-
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">
         <img src="kuvat/Siltis_logo.jpg" alt="Siltamäki logo" style="width:200px;" class="border-box">
-    </a>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -65,9 +96,7 @@
           <li class="nav-item">
             <a class="nav-link" href="linkit.htm">Linkkejä</a>
           </li>
-        </ul> 
-
-        
+        </ul>    
 
       </div>
     </div>
@@ -78,60 +107,68 @@
     <a class="navbar-brand" href="asuminen.htm"> </a>
 
     <h2 style="padding-top:14px">Asuminen</h2>
-  
+
+  <!-- Haitarin muotoilu ja sisältö -->
   <div class="accordion" id="accordionExample">
     <div class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
-          Omakotitalo
+          <p>Omakotitalo</p>
         </button>
       </h2>
-      <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          <p><strong>Siltamäestä löytyy omakotitaloja useilta eri vuosikymmeniltä.</strong> <img src="kuvat/Keltainen talo vaaka.jpg" class="card-img-top" alt="...">
+          Omakotitaloja on Siltamäessä runsaasti. Niitä löytää monissa eri hintaluokissa, joten myös hieman pienemmälläkin budjetilla, voit päästä kiinni omakotiasumiseen. Omakotitalojen puutarhat
+          tarjoavatkin varsin kauniin ja moninaisen sekä vehreän ympäristön Siltamäkeen.
+          </p>
         </div>
       </div>
     </div>
     <div class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Rivitalo
+          <p>Rivitalo</p>
         </button>
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          <p><strong>Rivitalot ovat pääasiassa 70-80 -luvuilta.
+          </strong> Rivitaloja Siltamäestä löytyy suhteellinen vähän, koska niiden sijaan kaavamääräysten vuoksi löytyy paritaloja. Rivitalojen ystäville on kuitenkin kohteita
+          silloin tällöin tarjolla.
+          </p>
         </div>
       </div>
     </div>
     <div class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Kerrostalo
+          <p>Kerrostalo</p>
         </button>
       </h2>
       <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          <p><strong>Kerrostalot sijaitsevät pääasiassa Siltamäen aluepuiston reunoilla.</strong> Lähes kaikki kerrostalot siis sijaitsevat rauhallisen vehreän puistomaiseman
+            keskellä ja kaikki tarvittavat palvelut ovat käden ulottuvilla. Kerrostalot ovat suurilta osin matalia 2-kerroksisia rakennuksia.
+          </p>
         </div>
       </div>
     </div>
   </div>
 
-
-  
+  <!-- Footerin sisältö --> 
   <footer class="p5">
     <div class="container">
       <div class="row">
         
-           <center>
-           <h2>Siltamäki</h2>
-           </center>
-            <center>
-            <h5>Contact Us</h5>
-            <ul class="list-unstyled">
-                <li>Email: info@example.com</li>
-            </center>
+        <center>
+        <h3>Siltamäki-Suutarila Seura ry</h3>
+        </center>
+          <center>
+           <h5></h5>
+           <ul class="list-unstyled">
+               <a href="mailto: sisuseura@gmail.com" style="color:white">sähköposti: sisuseura@gmail.com</a>
+          </center>
       </div>
     </div>
   </footer>
