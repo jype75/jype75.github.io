@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+
+    <title>Jyrin JSON-malli</title> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+    <h1>JSON-testisivu</h1> <br>
+    <div id="vastaus"></div>
+
+<script>
+
+//funktio joka kirjoittaa haetun datan halutussa muodalla HTML-sivulle 
+       function kerro(data){
+        
+        var teksti = ""; 
+        teksti = "<h2>" + data.otsikko + "</h2>" + 
+        "<p>" + data.kuvaus + "</p>" +
+        "<a href=>" + data.kuva + "</a>" +
+        "<p>" + data.opintojakso.nimi + "</p>" +
+        "<p>" + data.opintojakso.tunnus + "</p>" +
+        "<p>" + data.opintojakso.opintopisteet + "</p>" + "<br>" +
+
+        "<p>" + data.sisalto [0] + "</p>" +
+        "<p>" + data.sisalto [1] + "</p>" +
+        "<p>" + data.sisalto [2] + "</p>" +
+        "<p>" + data.sisalto [3] + "</p>" + "<br>" +
+
+        "<p>" + data.tekniikat [0][0].aihe + "</p>" + 
+        "<a href=>" + data.tekniikat [0][0].linkki + "</a>" +
+
+        "<p>" + data.tekniikat [1][0].aihe + "</p>" + 
+        "<a href=>" + data.tekniikat [1][0].linkki + "</a>" +
+
+        "<p>" + data.tekniikat [2][0].aihe + "</p>" + 
+        "<a href=>" + data.tekniikat [2][0].linkki + "</a>" +
+
+        "<p>" + data.tekniikat [3][0].aihe + "</p>" + 
+        "<a href=>" + data.tekniikat [3][0].linkki + "</a>" ;
+
+
+        
+        document.getElementById("vastaus").innerHTML = teksti;
+        }
+
+       
+
+    fetch("https://jype75.github.io/oma.json")    
+
+// Muunnetaan vastaus JSON muotoon  
+    .then(function (response) {
+    return response.json();
+}) 
+
+//Käsitellään muunnettu (eli JSON muotoinen) vastaus 
+// Kutsutaan funktiota kerro()ja välitetään sille json-vastaus
+
+
+    .then(function (responseJson) {
+    kerro(responseJson);  	}) 
+
+// Jos tuli jokin virhe 
+
+    .catch(function (error) { 
+    document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>"; 
+
+})
+</script>
+
+    
+
+
+</body>
+</html>

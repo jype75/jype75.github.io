@@ -17,32 +17,33 @@
         "3":        "tiedon haku julkisista palveluista rest-rajapinnan yli"
     },
 
-    "tekniikat":  {
-        
-         "0":      [{
+    "tekniikat":  
+        {
+         "0": [{
         "aihe":     "low-code",
         "linkki":   "https://www.weebly.com/"
-        }],
+         }],
         
         
-        "1":        [{
+        "1": [ {   
         "aihe":     "wordpress",
         "linkki":   "https://wordpress.com/"
-        }],
+        }] ,
         
         
-        "2":        [{
+        "2": [ {    
         "aihe":     "bootstrap",
         "linkki":   "https://getbootstrap.com/"
         }],
         
-
-        "3":        [{
+        
+        "3": [{     
         "aihe":     "JSON",
         "linkki":   "https://www.json.org/json-en.html"
         }]
+        }
         
-    }
+
 }
 
 
