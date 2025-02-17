@@ -6,18 +6,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- linkki CSS-tiedostoon -->
     <link href="style.css" rel="stylesheet" type="text/css">
 
 </head>
 
 
 <body>
+
     <h1>JSON-testisivu</h1> <br>
     <div id="vastaus"></div>
 
 <script>
 
-//funktio joka kirjoittaa haetun datan halutussa muodalla HTML-sivulle 
+
+
+//funktio kirjoittaa haetun datan halutussa muodassa HTML-sivulle 
        function kerro(data){
         
         var teksti = ""; 
@@ -34,7 +38,7 @@
         "<p>" + data.sisalto [3] + "</p>" + "<br>" +
 
         "<p>" + data.tekniikat [0][0].aihe + "</p>" + 
-        "<a href=>" + data.tekniikat [0][0].linkki + "</a>" +
+        "<a href=>" + data.tekniikat [0][0].linkki + "</a>" + 
 
         "<p>" + data.tekniikat [1][0].aihe + "</p>" + 
         "<a href=>" + data.tekniikat [1][0].linkki + "</a>" +
@@ -45,22 +49,22 @@
         "<p>" + data.tekniikat [3][0].aihe + "</p>" + 
         "<a href=>" + data.tekniikat [3][0].linkki + "</a>" ;
 
-
+      
         
         document.getElementById("vastaus").innerHTML = teksti;
         }
 
-       
+        
 
     fetch("https://jype75.github.io/oma.json")    
 
-// Muunnetaan vastaus JSON muotoon  
+// Muunnetaan vastaus JSON-muotoon  
     .then(function (response) {
     return response.json();
 }) 
 
-//Käsitellään muunnettu (eli JSON muotoinen) vastaus 
-// Kutsutaan funktiota kerro()ja välitetään sille json-vastaus
+//Käsitellään muunnettu (eli JSON-muotoinen) vastaus 
+// Kutsutaan funktiota kerro() ja välitetään sille json-vastaus
 
 
     .then(function (responseJson) {
@@ -69,7 +73,10 @@
 // Jos tuli jokin virhe 
 
     .catch(function (error) { 
-    document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>"; 
+    document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+    
+    
+
 
 })
 </script>
