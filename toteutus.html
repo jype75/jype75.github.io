@@ -20,10 +20,14 @@
 <script>
 
 //funktio kirjoittaa haetun datan halutussa muodassa HTML-sivulle 
-function kerro(data){
+        function kerro(data){
         
         var teksti = ""; 
-    
+        teksti = "<h2>" + data.toteutuksen_nimi + "</h2>" + 
+        "<p>" + data.kuvaus + "</p>" ;
+
+
+
 
         document.getElementById("vastaus").innerHTML = teksti;
         }
