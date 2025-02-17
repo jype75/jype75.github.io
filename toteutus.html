@@ -16,25 +16,45 @@
 
     <h1>Toteutus</h1> <br>
     <div id="vastaus"></div>
+    <div id="osallistujat_"></div>
 
 <script>
 
 //funktio kirjoittaa haetun datan halutussa muodassa HTML-sivulle 
         function kerro(data){
-        
+        var result = "";
         var teksti = ""; 
         teksti = "<h2>" + data.toteutuksen_nimi + "</h2>" + 
-        "<p>" + data.kuvaus + "</p>" ;
+        "<p>" + data.osallistujien_lukumaara + "</p>" ;
+        
 
 
 
 
-        document.getElementById("vastaus").innerHTML = teksti;
-        }
+
+
+
+
+        console.log[result] + data.osallistujat
+
+        for (i in data.osallistujat) {
+        result += data.osallistujat[i]
+
+        
+        } 
+
+
 
         
 
-    fetch("https://jype75.github.io/oma_2.json")    
+        document.getElementById("vastaus").innerHTML = teksti;
+        document.getElementById("osallistujat_").innerHTML = result; 
+    
+        }
+
+       
+
+    fetch("https://jype75.github.io/oma.json")    
 
 // Muunnetaan vastaus JSON-muotoon  
     .then(function (response) {
