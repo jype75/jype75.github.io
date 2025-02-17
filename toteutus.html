@@ -18,6 +18,7 @@
     <div id="vastaus"></div>
     <div id="osallistujat_"></div>
     <div id="vastaus2"></div>
+    
 <script>
 
 //funktio kirjoittaa haetun datan halutussa muodassa HTML-sivulle 
@@ -30,6 +31,7 @@
          
         teksti2 = "<p>" + data.toteutuksen_alku_ja_loppu + "</p>" +
         "<p>" + data.toteutuksen_kesto_vko + "</p>" ;
+
         
 
 
@@ -48,7 +50,7 @@
         } 
 
 
-
+        
         
 
         document.getElementById("vastaus").innerHTML = teksti;
@@ -57,7 +59,14 @@
     
         }
 
-       
+        import data from './data.json';
+
+        const URL =  JSON.stringify(data.kuva_)   
+        <Image source = {{uri: URL } style = {{ width: 98, height: 22 }} /> ;
+
+        const URL = data.kuva_
+        <Image source = {{uri: URL } style = {{ width: 98, height: 22 }} /> ;
+
 
     fetch("https://jype75.github.io/oma.json")    
 
