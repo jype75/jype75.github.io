@@ -17,17 +17,18 @@
     <h1>Toteutus</h1> <br>
     <div id="vastaus"></div>
     <div id="osallistujat_"></div>
-
+    <div id="vastaus2"></div>
 <script>
 
 //funktio kirjoittaa haetun datan halutussa muodassa HTML-sivulle 
         function kerro(data){
         var result = "";
         var teksti = ""; 
+        var teksti2 = "";
         teksti = "<h2>" + data.toteutuksen_nimi + "</h2>" + 
         "<p>" + data.osallistujien_lukumaara + "</p>" ;
-        
-
+         
+        teksti2 = "<p>" + data.toteutuksen_alku_ja_loppu + "</p>" ;
 
 
 
@@ -41,6 +42,9 @@
         result += data.osallistujat[i]
 
         
+        
+           
+        
         } 
 
 
@@ -49,6 +53,7 @@
 
         document.getElementById("vastaus").innerHTML = teksti;
         document.getElementById("osallistujat_").innerHTML = result; 
+        document.getElementById("vastaus2").innerHTML = teksti2;
     
         }
 
