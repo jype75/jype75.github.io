@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON-kuva</title>
+</head>
+<body>
+
+<h2>Kuva JSON-tiedostosta</h2>
+<div id="kuva-container"></div>
+
+<script>
+    // Haetaan JSON-tiedosto ja näytetään kuva
+    fetch('https://jype75.github.io/oma.json') // Oletus että JSON on tässä osoitteessa
+        .then(response => response.json())
+        .then(data => {
+            // Luodaan img-elementti ja asetetaan src JSON-datasta
+            const img = document.createElement('img');
+            img.src = data.kuva;
+            img.alt = "JSON-kuva";
+            img.style.maxWidth = "500px"; // Rajoitetaan kuvan koko
+            document.getElementById('kuva-container').appendChild(img);
+        })
+        .catch(error => console.error('Virhe JSON-datan latauksessa:', error));
+</script>
+
+</body>
+</html>

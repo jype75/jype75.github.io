@@ -2,6 +2,7 @@
 <html lang="fi">
 <head>
 
+    <!-- Sivun metatiedot -->
     <title>Jyrin toteutusmalli</title> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +19,7 @@
     <div id="vastaus"></div>
     <div id="osallistujat_"></div>
     <div id="vastaus2"></div>
-    
+    <div id="kuva-container"></div>
     
 <script>
 
@@ -34,7 +35,6 @@
         "<p>" + data.toteutuksen_kesto_vko + "</p>";
         
     
-
         console.log[result] 
 
         for (i in data.osallistujat) {
@@ -65,6 +65,18 @@
 
     .then(function (responseJson) {
     kerro(responseJson);  	}) 
+
+    fetch('https://jype75.github.io/oma.json') 
+    .then(response => response.json())
+    .then(data => {
+// Luodaan img-elementti ja asetetaan src JSON-datasta
+        const img = document.createElement('img');
+            img.src = data.kuva_;
+            img.alt = "JSON-kuva";
+            img.style.maxWidth = "500px"; // Rajoitetaan kuvan koko
+            document.getElementById('kuva-container').appendChild(img);
+
+    })
 
 // Jos tuli jokin virhe 
 

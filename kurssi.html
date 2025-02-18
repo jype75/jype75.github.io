@@ -2,6 +2,7 @@
 <html lang="fi">
 <head>
 
+    <!-- Sivun metatiedot -->
     <title>Jyrin JSON-malli</title> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,19 +17,23 @@
 
     <h1>JSON-testisivu</h1> <br>
     <div id="vastaus"></div>
+    <div id="kuva-container"></div>
+    <div id="vastaus2"></div>
 
 <script>
 
 
-
 //funktio kirjoittaa haetun datan halutussa muodassa HTML-sivulle 
-       function kerro(data){
-        
+        function kerro(data){
         var teksti = ""; 
+        var teksti2 = "";
+        img1= new Image();
         teksti = "<h2>" + data.otsikko + "</h2>" + 
-        "<p>" + data.kuvaus + "</p>" +
-        "<a href=>" + data.kuva + "</a>" +
-        "<p>" + data.opintojakso.nimi + "</p>" +
+        "<p>" + data.kuvaus + "</p>" ;
+        
+        
+      
+        teksti2 = "<p>" + data.opintojakso.nimi + "</p>" +
         "<p>" + data.opintojakso.tunnus + "</p>" +
         "<p>" + data.opintojakso.opintopisteet + "</p>" + "<br>" +
 
@@ -52,9 +57,10 @@
       
         
         document.getElementById("vastaus").innerHTML = teksti;
-        }
+        document.getElementById("vastaus2").innerHTML = teksti2;
 
-        
+        }
+      
 
     fetch("https://jype75.github.io/oma.json")    
 
@@ -65,24 +71,31 @@
 
 //Käsitellään muunnettu (eli JSON-muotoinen) vastaus 
 // Kutsutaan funktiota kerro() ja välitetään sille json-vastaus
-
-
     .then(function (responseJson) {
     kerro(responseJson);  	}) 
+
+    fetch('https://jype75.github.io/oma.json') 
+    .then(response => response.json())
+    .then(data => {
+// Luodaan img-elementti ja asetetaan src JSON-datasta
+        const img = document.createElement('img');
+            img.src = data.kuva;
+            img.alt = "JSON-kuva";
+            img.style.maxWidth = "500px"; // Rajoitetaan kuvan koko
+            document.getElementById('kuva-container').appendChild(img);
+
+        })       
 
 // Jos tuli jokin virhe 
 
     .catch(function (error) { 
     document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
-    
+    })
     
 
-
-})
 </script>
 
     
-
 
 </body>
 </html>
