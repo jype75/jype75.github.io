@@ -73,20 +73,21 @@
 
     fetch("https://jype75.github.io/oma.json")    
 
-// Muunnetaan vastaus JSON-muotoon  
+    // Muunnetaan vastaus JSON-muotoon  
     .then(function (response) {
     return response.json();
 }) 
 
-//Käsitellään muunnettu (eli JSON-muotoinen) vastaus 
-// Kutsutaan funktiota kerro() ja välitetään sille json-vastaus
+    //Käsitellään muunnettu (eli JSON-muotoinen) vastaus 
+    // Kutsutaan funktiota kerro() ja välitetään sille json-vastaus
     .then(function (responseJson) {
     kerro(responseJson);  	}) 
 
     fetch('https://jype75.github.io/oma.json') 
     .then(response => response.json())
     .then(data => {
-// Luodaan img-elementti ja asetetaan src JSON-datasta
+
+        // Luodaan img-elementti ja asetetaan src JSON-datasta
         const img = document.createElement('img');
             img.src = data.kuva;
             img.alt = "JSON-kuva";
@@ -95,7 +96,7 @@
 
         })       
 
-// Jos tuli jokin virhe 
+    // Jos tuli jokin virhe 
 
     .catch(function (error) { 
     document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";

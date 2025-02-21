@@ -24,13 +24,10 @@
         <a href="junat.html">Junat</a>
       </div>
 
-      <div id="vastaus"></div>
+    <div id="vastaus"></div>
 
 
 <script>
-
-      
-
 
         function tapahtumat(data) {
         var teksti = "";
@@ -39,7 +36,7 @@
 
         for (var i = 0; i < data.length; i++) {
 
-        teksti = teksti + "<h3>" + data[i].name + "</h3>";
+        teksti = teksti + "<h3>" + data[i].title + "</h3>";
 
         teksti = teksti + "<p>" + data[i].description + "</p>";
 
@@ -47,32 +44,27 @@
 
         }
 
-        document.getElementById("d44").innerHTML = teksti;
+        document.getElementById("vastaus").innerHTML = teksti;
 
 }
 
-        fetch("https://api.visittampere.com/api/v1/visittampere/event/published/all/?format=json&lang=fi")
+    fetch("https://api.visittampere.com/api/v1/visittampere/event/published/all/?format=json&lang=fi")
 
 
-// Muunnetaan vastaus JSON muotoon
+    // Muunnetaan vastaus JSON muotoon
+    // Käsitellään muunnettu (eli JSON muotoinen) vastaus
+    // Kutsutaan funktiota ja välitetään sille json-vastaus tapahtumat
 
-    .then(function (response) { return response.json();
+    .then(response => response.json())
+    .then(data => tapahtumat(data))   
 
-})
+    // Jos tuli jokin virhe
 
-// Käsitellään muunnettu (eli JSON muotoinen) vastaus
-
-    .then(function (responseJson) {
-})
-
-// Kutsutaan funktiota ja välitetään sille json-vastaus tapahtumat(responseJson)})
+    .catch(function (error) { 
+    document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+    })
 
 
-// Jos tuli jokin virhe
-
-    .catch(function (error) { document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan </p>"+ error;
-
-})
       
 </script>
 

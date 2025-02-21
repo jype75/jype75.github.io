@@ -24,6 +24,58 @@
         <a href="junat.html">Junat</a>
       </div>
 
+      <h1>Sää Helsingissä ja Tampereella</h1>
 
+    <div class="flex-container">
+        <div id="vastaus"></div>
+        <img src="" id="icon">
+        
+        <div>2</div>
+          
+    </div>
+
+    <script>
+
+        function saa(data) {
+        var teksti = "";
+
+        teksti =            "<h6>Kaupunki:</h6>" + "&nbsp" + "<h6>" + data.name + "</h6>";
+        teksti = teksti +   "<h6>Sää:</h6>" + "&nbsp" + "<h6>" + data.weather[0].description + "</h6>";
+        teksti = teksti +   "<h6>Lämpötila:</h6>" + "&nbsp" + "<h6>" + data.main.temp + "</h6>" + "<h6>&degC</h6>";
+        teksti = teksti +   "<h6>Tuuli:</h6>" + "&nbsp" + "<h6>" + data.wind.speed + "</h6>" + "<h6>&nbspm/s</h6>";
+        
+        //teksti = teksti + "<p>" + data[i].description + "</p>";
+
+        //teksti = teksti + "<p> <a href=" + data[i].url + ">" + data[i].url + "</a></p>";
+
+        
+
+        document.getElementById("vastaus").innerHTML = teksti;
+        document.getElementById("icon").src = "http://openweathermap.org/img/w/${d.weather[0].icon}.png";
+
+}
+
+    fetch("https://api.openweathermap.org/data/2.5/weather?id=658225&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi&units=metric")
+
+
+    // Muunnetaan vastaus JSON muotoon
+    // Käsitellään muunnettu (eli JSON muotoinen) vastaus
+    // Kutsutaan funktiota ja välitetään sille json-vastaus tapahtumat
+
+    .then(response => response.json())
+    .then(data => saa(data))   
+
+    // Jos tuli jokin virhe
+
+    .catch(function (error) { 
+    document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+    })
+
+
+      
+</script>
+
+
+      
 </body>
 </html>
