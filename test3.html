@@ -1,33 +1,24 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-
-    <!-- Sivun metatiedot -->
-    <title>Junat</title> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- linkki CSS-tiedostoon -->
+    <title>Junat</title>
     <link href="style.css" rel="stylesheet" type="text/css">
-
 </head>
-
-
 <body>
 
     <div class="topnav">
-        <a  href="kurssi.html">Kurssi</a>
+        <a href="kurssi.html">Kurssi</a>
         <a href="toteutus.html">Toteutus</a>
         <a href="tapahtumat.html">Tapahtumat</a>
         <a href="saa.html">Sää</a>
         <a href="liikennekamera.html">Liikennekamera</a>
         <a class="active" href="junat.html">Junat</a>
-      </div>
+    </div>
 
-      <h1>Matka Tampereelle junalla</h1>
-
-
-      <div id="vastaus"></div>
+    <h1>Matka Tampereelle junalla</h1>
+    <div id="vastaus"></div>
 
     <script>
         function junat(data) {
@@ -71,6 +62,58 @@
             .catch(error => console.error("Virhe haettaessa dataa:", error));
     </script>
 
-
 </body>
 </html>
+
+
+
+
+
+
+<div id="vastaus"></div>
+
+      <script>
+
+        function saa1(data) {
+        var teksti = "";
+
+        for (var i = 0; i < data.length; i++
+
+        for (var j = 0; j < data[i].timeTableRows.length; j++
+
+
+        if (data[i].timeTableRows[j].stationShortCode=="TPE"
+
+        if (data[i].timeTableRows[j].type=="DEPARTURE"
+
+        if (data[i].trainCategory == "Long-distance"
+
+        data[i].timeTableRows[0].stationShortCode
+
+        var vika = data[i].timeTableRows.length –1
+
+        data[i].timeTableRows[vika].stationShortCode
+
+        var pvm = data[i].timeTableRows[j].scheduledTime;
+
+        var aika = pvm.substr(0, 10) + " kello: " + pvm.substr(11,5)
+
+
+        // Päivitetään junatiedot sivulle
+        document.getElementById("vastaus").innerHTML = teksti;
+
+
+        }        
+      // Haetaan junadata
+      fetch("https://rata.digitraffic.fi/api/v1/live-trains/station/HKI?departing_trains=100&include_nonstopping=false")
+
+      
+      // Muunnetaan vastaus JSON muotoon
+      // Käsitellään muunnettu (eli JSON muotoinen) vastaus
+      // Kutsutaan funktiota ja välitetään sille json-vastaus 
+
+      .then(response => response.json())
+      .then(data => junat(data))
+
+
+    </script>  
