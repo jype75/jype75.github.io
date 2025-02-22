@@ -24,6 +24,40 @@
         <a href="junat.html">Junat</a>
       </div>
 
+      <h1>Autolla Tampereelle ja kovaa</h1>
+      <h3>Minkälainen keli siellä on?</h3>
+
+      <div class="kamera-container" id="kamera-container"></div>
+
+      <script>
+        // Kamera-ID:t Digitrafficin API:sta
+        const cameraIds = ["C0450701", "C0450702", "C0450703", "C0450704", "C0450709"];
+        const container = document.getElementById("kamera-container");
+    
+        function updateCameras() {
+    
+            // Tyhjennetään ennen uusien kuvien lisäämistä
+            container.innerHTML = ""; 
+    
+            for (let i = 0; i < cameraIds.length; i++) {
+                const camDiv = document.createElement("div");
+                camDiv.className = "camera";
+                camDiv.innerHTML = `
+                    <h4>Kamera ${cameraIds[i]}</h4>
+                    <img src="https://weathercam.digitraffic.fi/${cameraIds[i]}.jpg?timestamp=${new Date().getTime()}" alt="Liikennekamera ${cameraIds[i]}">
+                `;
+                container.appendChild(camDiv);
+            }
+        }
+    
+        // Päivitä sivun latautuessa
+        updateCameras(); 
+        
+    
+     
+
+    </script>
+
 
 </body>
 </html>

@@ -1,0 +1,61 @@
+<script>
+    // Kamera-ID:t Digitrafficin API:sta
+    const cameraIds = ["C0450701", "C0450702", "C0450703", "C0450704", "C0450709"];
+    const container = document.getElementById("kamera-container");
+
+    function updateCameras() {
+
+        // Tyhjennetään ennen uusien kuvien lisäämistä
+        container.innerHTML = ""; 
+
+        for (let i = 0; i < cameraIds.length; i++) {
+            const camDiv = document.createElement("div");
+            camDiv.className = "camera";
+            camDiv.innerHTML = `
+                <h4>Kamera ${cameraIds[i]}</h4>
+                <img src="https://weathercam.digitraffic.fi/${cameraIds[i]}.jpg?timestamp=${new Date().getTime()}" alt="Liikennekamera ${cameraIds[i]}">
+            `;
+            container.appendChild(camDiv);
+        }
+    }
+
+    // Päivitä sivun latautuessa
+    updateCameras(); 
+    
+
+</script> 
+
+
+
+<script>
+    const cameraIds = ["C0450701", "C0450702", "C0450703", "C0450704", "C0450709"];
+    const container = document.getElementById("kamera-container");
+
+    async function fetchCameraData(cameraId) {
+        try {
+            const response = await fetch(`https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507`);
+            const data = await response.json();
+            return new Date(data.measuredTime).toLocaleString("fi-FI"); // Aika muodossa PP.KK.VVVV HH:MM:SS
+        } catch (error) {
+            console.error(`Virhe haettaessa kamera ${cameraId}:`, error);
+            return "Aikatietoa ei saatavilla";
+        }
+    }
+
+    async function updateCameras() {
+        container.innerHTML = "";
+
+        for (let i = 0; i < cameraIds.length; i++) {
+            const measuredTime = await fetchCameraData(cameraIds[i]); // Haetaan aikatieto kameralle
+            const camDiv = document.createElement("div");
+            camDiv.className = "camera";
+            camDiv.innerHTML = `
+                <h4>${measuredTime}</h4>
+                <img src="https://weathercam.digitraffic.fi/${cameraIds[i]}.jpg?timestamp=${new Date().getTime()}" alt="Liikennekamera ${cameraIds[i]}">
+            `;
+            container.appendChild(camDiv);
+        }
+    }
+
+    updateCameras();
+    setInterval(updateCameras, 600000); // Päivitä 10 minuutin välein

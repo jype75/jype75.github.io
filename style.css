@@ -60,7 +60,13 @@ body {color:rgb(0,0,0);
     font-size: 25px;
     max-width: 100%;
     min-width: none;
-  
-    
-    
   }
+    .kamera-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+  }
+  .camera {
+      text-align: left;
+  }
+  
