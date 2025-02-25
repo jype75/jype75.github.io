@@ -28,20 +28,19 @@
       <h1>Sää Helsingissä ja Tampereella</h1>
 
     <div class="flex-container">
-        <div id="vastaus"></div>
-        <div id="vastaus2"></div>
-        <div id="vastaus3"></div>
-        <div id="vastaus4"></div>
-        <img id="weather-icon" alt="Sääikoni" width="70px" height="70px">
-        
-        <div id="vastaus5"></div>
-        <div id="vastaus6"></div>
-        <div id="vastaus7"></div>
-        <div id="vastaus8"></div>
-        <img id="weather-icon2" alt="Sääikoni" width="70px" height="70px">
-        
+            <div id="vastaus"></div>
+            <div id="vastaus2"></div>
+            <div id="vastaus3"></div>
+            <div id="vastaus4"></div>
+            <img id="weather-icon" alt="Sääikoni" width="70px" height="70px">
+            
+            <div id="vastaus5"></div>
+            <div id="vastaus6"></div>
+            <div id="vastaus7"></div>
+            <div id="vastaus8"></div>
+            <img id="weather-icon2" alt="Sääikoni" width="70px" height="70px">      
           
-    </div>
+        </div>
 
     <script>
 
@@ -76,7 +75,6 @@
         document.getElementById("vastaus3").innerHTML = teksti3;
         document.getElementById("vastaus4").innerHTML = teksti4;
         
-
 }
         // Haetaan säädata
         fetch("https://api.openweathermap.org/data/2.5/weather?id=658225&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi&units=metric")
@@ -85,15 +83,11 @@
         // Muunnetaan vastaus JSON muotoon
         // Käsitellään muunnettu (eli JSON muotoinen) vastaus
         // Kutsutaan funktiota ja välitetään sille json-vastaus 
-
         .then(response => response.json())
         .then(data => saa1(data))
 
-
-        
-
         function saa2(data) {
-        //var teksti = "";
+        
 
         //lämpötilan pyöristys
         let number1 = data.main.temp;

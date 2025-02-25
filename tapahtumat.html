@@ -15,6 +15,7 @@
 
 <body>
 
+    <!-- navikointipalkki -->
     <div class="topnav">
         <a href="kurssi.html">Kurssi</a>
         <a href="toteutus.html">Toteutus</a>
@@ -43,7 +44,8 @@
         teksti = teksti + "<p> <a href=" + data[i].url + ">" + data[i].url + "</a></p>";
 
         }
-
+        
+        // Tulostus
         document.getElementById("vastaus").innerHTML = teksti;
 
 }
@@ -54,12 +56,10 @@
     // Muunnetaan vastaus JSON muotoon
     // Käsitellään muunnettu (eli JSON muotoinen) vastaus
     // Kutsutaan funktiota ja välitetään sille json-vastaus tapahtumat
-
     .then(response => response.json())
     .then(data => tapahtumat(data))   
 
     // Jos tuli jokin virhe
-
     .catch(function (error) { 
     document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
     })

@@ -70,3 +70,10 @@ body {color:rgb(0,0,0);
       text-align: left;
   }
   
+  
+.border {
+  border-style: solid;
+  padding: 10px;
+
+
+  }

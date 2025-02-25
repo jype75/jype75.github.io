@@ -15,6 +15,7 @@
 
 <body>
 
+    <!-- navikointipalkki -->
     <div class="topnav">
         <a class="active" href="kurssi.html">Kurssi</a>
         <a href="toteutus.html">Toteutus</a>
@@ -25,22 +26,21 @@
       </div>
 
     <h1>JSON-testisivu</h1> <br>
-    <div id="vastaus"></div>
-    <div id="kuva-container"></div>
-    <div id="vastaus2"></div>
+    <div class="border">
+        <div id="vastaus"></div>
+        <div id="kuva-container"></div>
+        <div id="vastaus2"></div>
+            </div>
 
 <script>
 
-
-//funktio kirjoittaa haetun datan halutussa muodassa HTML-sivulle 
+        //funktio kirjoittaa haetun datan halutussa muodassa HTML-sivulle 
         function kerro(data){
         var teksti = ""; 
         var teksti2 = "";
         img1= new Image();
         teksti = "<h2>" + data.otsikko + "</h2>" + 
         "<p>" + data.kuvaus + "</p>" ;
-        
-        
       
         teksti2 = "<p>" + data.opintojakso.nimi + "</p>" +
         "<p>" + data.opintojakso.tunnus + "</p>" +
@@ -64,7 +64,7 @@
         "<a href=>" + data.tekniikat [3][0].linkki + "</a>" ;
 
       
-        
+        //Tulostus
         document.getElementById("vastaus").innerHTML = teksti;
         document.getElementById("vastaus2").innerHTML = teksti2;
 
@@ -100,12 +100,10 @@
 
     .catch(function (error) { 
     document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
-    })
-    
+    })    
 
 </script>
 
-    
 
 </body>
 </html>

@@ -14,7 +14,7 @@
 
 
 <body>
-
+    <!-- navikointipalkki -->
     <div class="topnav">
         <a href="kurssi.html">Kurssi</a>
         <a class="active" href="toteutus.html">Toteutus</a>
@@ -25,75 +25,71 @@
       </div>
 
     <h1>Toteutus</h1> <br>
-    <div id="vastaus"></div>
-    <div id="osallistujat_"></div>
-    <div id="vastaus2"></div>
-    <div id="kuva-container"></div>
-    
+    <div class="border">
+            <div id="vastaus"></div>
+            <div id="osallistujat_"></div>
+            <div id="vastaus2"></div>
+            <div id="kuva-container"></div>
+        </div>
+
 <script>
 
-//funktio kirjoittaa haetun datan halutussa muodassa HTML-sivulle 
-        function kerro(data){
-        var result = "";
-        var teksti = ""; 
-        var teksti2 = "";
-        teksti = "<h2>" + data.toteutuksen_nimi + "</h2>" + 
-        "<p>" + data.osallistujien_lukumaara + "</p>" ;
-         
-        teksti2 = "<p>" + data.toteutuksen_alku_ja_loppu + "</p>" +
-        "<p>" + data.toteutuksen_kesto_vko + "</p>";
+    //funktio kirjoittaa haetun datan halutussa muodassa HTML-sivulle 
+    function kerro(data){
+    var result = "";
+    var teksti = ""; 
+    var teksti2 = "";
+    teksti = "<h2>" + data.toteutuksen_nimi + "</h2>" + 
+    "<p>" + data.osallistujien_lukumaara + "</p>" ;
         
+    teksti2 = "<p>" + data.toteutuksen_alku_ja_loppu + "</p>" +
+    "<p>" + data.toteutuksen_kesto_vko + "</p>"; 
+
+    console.log[result] 
+
+    // Käydään läpi muuttujat
+    for (i in data.osallistujat) {
+    result += data.osallistujat[i]
+
     
-        console.log[result] 
-
-        for (i in data.osallistujat) {
-        result += data.osallistujat[i]
-   
-        
-        }   
-
-        document.getElementById("vastaus").innerHTML = teksti;
-        document.getElementById("osallistujat_").innerHTML = result; 
-        document.getElementById("vastaus2").innerHTML = teksti2;
+    }   
     
-        }
+    // Tulostus
+    document.getElementById("vastaus").innerHTML = teksti;
+    document.getElementById("osallistujat_").innerHTML = result; 
+    document.getElementById("vastaus2").innerHTML = teksti2;
 
-        
-
+    }
 
     fetch("https://jype75.github.io/oma.json")    
 
-// Muunnetaan vastaus JSON-muotoon  
+    // Muunnetaan vastaus JSON-muotoon  
     .then(function (response) {
     return response.json();
 }) 
 
-//Käsitellään muunnettu (eli JSON-muotoinen) vastaus 
-// Kutsutaan funktiota kerro() ja välitetään sille json-vastaus
-
-
+    //Käsitellään muunnettu (eli JSON-muotoinen) vastaus 
+    // Kutsutaan funktiota kerro() ja välitetään sille json-vastaus
     .then(function (responseJson) {
     kerro(responseJson);  	}) 
 
     fetch('https://jype75.github.io/oma.json') 
     .then(response => response.json())
     .then(data => {
-// Luodaan img-elementti ja asetetaan src JSON-datasta
-        const img = document.createElement('img');
-            img.src = data.kuva_;
-            img.alt = "JSON-kuva";
-            img.style.maxWidth = "500px"; // Rajoitetaan kuvan koko
-            document.getElementById('kuva-container').appendChild(img);
+
+    // Luodaan img-elementti ja asetetaan src JSON-datasta
+    const img = document.createElement('img');
+        img.src = data.kuva_;
+        img.alt = "JSON-kuva";
+        img.style.maxWidth = "500px"; // Rajoitetaan kuvan koko
+        document.getElementById('kuva-container').appendChild(img);
 
     })
 
-// Jos tuli jokin virhe 
-
+    // Jos tuli jokin virhe 
     .catch(function (error) { 
     document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
     
-    
-
 
 })
 
