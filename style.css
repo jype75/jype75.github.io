@@ -74,6 +74,7 @@ body {color:rgb(0,0,0);
 .border {
   border-style: solid;
   padding: 10px;
+  padding-bottom: none;
 
 
   }
