@@ -56,6 +56,7 @@
                         }
                     }
 
+                    // Jos menee Tampereelle, niin haetaan tiedot
                     if (foundTPE && departureTime) {
                         let aika = departureTime.substr(0, 10) + " kello: " + departureTime.substr(11, 5);
                         teksti += `<li>Juna ${juna.trainNumber} lähtee ${aika}</li>`;
@@ -72,7 +73,10 @@
         fetch("https://rata.digitraffic.fi/api/v1/live-trains/station/HKI?departing_trains=100&include_nonstopping=false")
             .then(response => response.json())
             .then(data => junat(data))
+
+            // Jos virhe
             .catch(error => console.error("Virhe haettaessa dataa:", error));
+            
     </script>
 
 
