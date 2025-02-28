@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Fetch Example</title>
+</head>
+<body>
+
+    <h1>Artisti: <span id="artist"></span></h1>
+    <h1>Kappale: <span id="artist2"></span></h1>
+
+    <script>
+        
+
+        // Haetaan data fetch-komennolla
+        fetch("https://www.theaudiodb.com/api/v1/json/2/searchtrack.php?s=coldplay&t=yellow")
+            .then(response => {
+
+                // Muunnetaan vastaus JSON-muotoon
+                return response.json();
+            })
+            .then(data => {
+
+                    // Haetaan artistin ja kappaleen nimet
+                    const artistName = data.track[0].strArtist; 
+                    const songName = data.track[0].strTrack; 
+
+                    // Tulostus 
+                    document.getElementById("artist").textContent = artistName; 
+                    document.getElementById("artist2").textContent = songName;
+                
+            })
+            .catch(error => console.error('Virhe haettaessa dataa:', error));
+    </script>
+
+</body>
+</html>

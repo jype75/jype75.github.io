@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+
+    <!-- Sivun metatiedot -->
+    <title>Sää</title> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- linkki CSS-tiedostoon -->
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+
+    <!-- Navikointipalkki -->
+    <div class="topnav">
+        <a href="kurssi.html">Kurssi</a>
+        <a href="toteutus.html">Toteutus</a>
+        <a href="tapahtumat.html">Tapahtumat</a>
+        <a class="active" href="saa.html">Sää</a>
+        <a href="liikennekamera.html">Liikennekamera</a>
+        <a href="junat.html">Junat</a>
+      </div>
+
+      <h1>Sää Helsingissä ja Tampereella</h1>
+
+    <div class="flex-container">
+            <div id="vastaus"></div>
+             
+          
+        </div>
+
+    <script>
+
+        function saa1(api) {
+        var teksti = "";
+
+        
+
+        teksti =      "<h6>Kaupunki:</h6>" + "&nbsp" + "<h6>" + data.track[0].strArtist + "</h6>";
+        //teksti2 =    "<h6>Sää:</h6>" + "&nbsp" + "<h6>" + data.weather[0].description + "</h6>";
+        //teksti3 =    "<h6>Lämpötila:</h6>" + "&nbsp" + "<h6>" + rounded + "</h6>" + "<h6>&degC</h6>";
+        //teksti4 =    "<h6>Tuuli:</h6>" + "&nbsp" + "<h6>" + data.wind.speed + "</h6>" + "<h6>&nbspm/s</h6>";
+        
+        //pyöristetyn lämpötilan tulostus
+        console.log(rounded);
+
+       
+
+        // Päivitetään säätiedot sivulle
+        document.getElementById("vastaus").innerHTML = teksti;
+        //document.getElementById("vastaus2").innerHTML = teksti2;
+        //document.getElementById("vastaus3").innerHTML = teksti3;
+        //document.getElementById("vastaus4").innerHTML = teksti4;
+        
+}
+        // Haetaan säädata
+        fetch("https://www.theaudiodb.com/api/v1/json/2/searchtrack.php?s=coldplay&t=yellow")
+
+        
+        // Muunnetaan vastaus JSON muotoon
+        // Käsitellään muunnettu (eli JSON muotoinen) vastaus
+        // Kutsutaan funktiota ja välitetään sille json-vastaus 
+        .then(response => response.json())
+        .then(api => saa1(api))
+
+        //function saa2(data) {
+        
+
+        //lämpötilan pyöristys
+        //let number1 = data.main.temp;
+        //let rounded1 = number1.toFixed(1);
+
+        //muuttuja sää-ikonille
+        //var icon1 = data.weather[0].icon;
+
+        //teksti5 =     "<h6>Kaupunki:</h6>" + "&nbsp" + "<h6>" + data.name + "</h6>";
+        //teksti6 =    "<h6>Sää:</h6>" + "&nbsp" + "<h6>" + data.weather[0].description + "</h6>";
+        //teksti7 =    "<h6>Lämpötila:</h6>" + "&nbsp" + "<h6>" + rounded1 + "</h6>" + "<h6>&degC</h6>";
+        //teksti8 =    "<h6>Tuuli:</h6>" + "&nbsp" + "<h6>" + data.wind.speed + "</h6>" + "<h6>&nbspm/s</h6>";
+        
+        //pyöristetyn lämpötilan tulostus
+        //console.log(rounded1);
+
+        // Ikonin URL
+        //var iconCode = data.weather[0].icon;
+        //var iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png ` ;
+
+        // Päivitetään kuvan lähde
+       // document.getElementById("weather-icon2").src = iconUrl;
+
+        // Päivitetään säätiedot sivulle
+        //document.getElementById("vastaus5").innerHTML = teksti5;
+        //document.getElementById("vastaus6").innerHTML = teksti6;
+        //document.getElementById("vastaus7").innerHTML = teksti7;
+        //document.getElementById("vastaus8").innerHTML = teksti8;
+    
+        
+        
+        //fetch("https://api.openweathermap.org/data/2.5/weather?id=634963&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi&units=metric")
+
+        //.then(response => response.json())
+        //.then(data => saa2(data))
+        // Jos tuli jokin virhe
+
+        .catch(error => {  
+                    document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+                    console.error("Virhe haettaessa säätietoja:", error);
+                });
+
+
+      
+</script>
+
+
+      
+</body>
+</html>
