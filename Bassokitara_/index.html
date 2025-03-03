@@ -525,69 +525,52 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Sälää</h2>
-          <p>Magnam dolores commodi suscipit eius consequatur ex aliquid fuga eum quidem</p>
+          <p>Tiedätkö kuka soittaa bassoa yhtyeen kyseisellä kappaleella?</p>
         </div>
 
         <div class="row">
 
           <div class="col-lg-4 col-md-6">
             <div class="box" data-aos="zoom-in" data-aos-delay="100">
-              <h3>Free</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li class="na">Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
+
+              <h1>Yhtye: <span id="artist"></span></h1>
+              <h1>Kappale: <span id="artist2"></span></h1>
+
+    <script>
+        
+
+        // Haetaan data fetch-komennolla
+        fetch("https://www.theaudiodb.com/api/v1/json/2/searchtrack.php?s=coldplay&t=yellow")
+            .then(response => {
+
+                // Muunnetaan vastaus JSON-muotoon
+                return response.json();
+            })
+            .then(data => {
+
+                    // Haetaan artistin ja kappaleen nimet
+                    const artistName = data.track[0].strArtist; 
+                    const songName = data.track[0].strTrack; 
+
+                    // Tulostus 
+                    document.getElementById("artist").textContent = artistName; 
+                    document.getElementById("artist2").textContent = songName;
+                
+            })
+            .catch(error => console.error('Virhe haettaessa dataa:', error));
+    </script>
+
+              
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
+                <a href="https://fi.wikipedia.org/wiki/Coldplay" class="btn-buy">Vastauksen löydät täältä</a>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
-            <div class="box recommended" data-aos="zoom-in">
-              <span class="recommended-badge">Recommended</span>
-              <h3>Business</h3>
-              <h4><sup>$</sup>19<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="100">
-              <h3>Developer</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
+   
         </div>
 
       </div>
-    </section><!-- Sälää osion loppu -->
-
-   
+    </section><!-- Sälää osion loppu --> 
 
     <!-- ======= Yhteystiedot osio ======= -->
     <section id="contact" class="contact section-bg">
@@ -595,7 +578,8 @@
 
         <div class="section-title">
           <h2>Yhteystiedot</h2>
-          <p>Magnam dolores commodi suscipit eius consequatur ex aliquid fuga eum quidem</p>
+          <p>Jos jokin jäi askarruttamaan tai haluat lisää tietoa, niin lähetä viesti ja yhteystietosi 
+            sähköpostilla, palaamme asiaan mahdollisimman pian. Voit myös soittaa meille (ma-pe kl 12-15)</p>
         </div>
 
         <div class="row">
@@ -604,52 +588,26 @@
             <div class="info d-flex flex-column justify-content-center" data-aos="fade-right">
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>A108 Adam Street,<br>New York, NY 535022</p>
+                <h4>Sijainti:</h4>
+                <p>Bassokatu 4,<br>90125 Kielijärvi</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>info@example.com</p>
+                <h4>Sähköposti:</h4>
+                <p>info@basistionparas.fi</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <h4>Soita:</h4>
+                <p>+358 (0)9 123456</p>
               </div>
 
             </div>
 
           </div>
-
-          <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form" data-aos="fade-left">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-
-          </div>
+ 
 
         </div>
 
@@ -667,7 +625,7 @@
 
         <div class="row justify-content-center">
           <div class="col-lg-6">
-            <a href="#header" class="scrollto footer-logo"><img src="assets/img/hero-logo.png" alt=""></a>
+            <a href="#header" class="scrollto footer-logo"><img src="/Bassokitara_/Valmiit_pienet_kuvat/Viritystapit_logo.png" alt=""></a>
             <h3>Sähköbassokitara</h3>
             <p>Basisti ei pety, joten tilaa uutiskirjeemme.</p>
           </div>
