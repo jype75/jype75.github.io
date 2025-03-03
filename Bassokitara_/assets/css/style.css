@@ -1125,7 +1125,7 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Team
+# Basistit
 --------------------------------------------------------------*/
 .team {
   background: #fff;
@@ -1151,7 +1151,7 @@ section {
   height: 40px;
   opacity: 0;
   transition: bottom ease-in-out 0.4s;
-  background: rgba(124, 197, 118, 0.8);
+  background: #6ba7cf;
   display: flex;
   align-items: center;
   justify-content: center;
