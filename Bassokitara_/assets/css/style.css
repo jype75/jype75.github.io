@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #6ba7cf;
+  background: #317daf;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -159,7 +159,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #6ba7cf;
+  color: hsl(204, 60%, 45%);
 }
 
 .navbar .dropdown ul {
@@ -383,7 +383,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 3px;
   margin: 10px;
   color: #fff;
-  background: #6ba7cf;
+  background: #2e7db1;
 }
 
 #hero .btn-get-started:hover {
@@ -567,11 +567,6 @@ section {
 }
 
 
-
-
-
-
-
 /*--------------------------------------------------------------
 # Basistit eli team
 --------------------------------------------------------------*/
@@ -639,14 +634,14 @@ section {
   text-transform: uppercase;
   font-weight: 400;
   margin-bottom: 15px;
-  color: #6ba7cf;
+  color: #30709b;
 }
 
 .team .member .member-info p {
   font-style: italic;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 26px;
-  color: #888888;
+  color: #505050;
 }
 
 .team .member:hover .social {
@@ -730,8 +725,8 @@ section {
   display: inline-block;
   padding: 10px 40px 12px 40px;
   border-radius: 5px;
-  border: 2px solid #6ba7cf;
-  color: #6ba7cf;
+  border: 2px solid #2d6d97;
+  color: #2d6d97;
   font-size: 14px;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
@@ -843,7 +838,7 @@ section {
 
 .contact .info i {
   font-size: 20px;
-  color: #6ba7cf;
+  color: #2d6d97;
   float: left;
   width: 44px;
   height: 44px;
@@ -875,7 +870,7 @@ section {
 }
 
 .contact .info .email:hover i, .contact .info .address:hover i, .contact .info .phone:hover i {
-  background: #6ba7cf;
+  background: #2d6d97;
   color: #fff;
 }
 
@@ -906,7 +901,7 @@ section {
 .contact .php-email-form .sent-message {
   display: none;
   color: #fff;
-  background: #6ba7cf;
+  background: #2d6d97;
   text-align: center;
   padding: 15px;
   font-weight: 600;
@@ -926,7 +921,7 @@ section {
   width: 24px;
   height: 24px;
   margin: 0 10px -6px 0;
-  border: 3px solid #6ba7cf;
+  border: 3px solid #2d6d97;
   border-top-color: #eee;
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite;
@@ -947,7 +942,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"] {
-  background: #6ba7cf;
+  background: #2d6d97;
   border: 0;
   padding: 10px 24px;
   color: #fff;
@@ -956,7 +951,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"]:hover {
-  background: #6ba7cf;
+  background: #2d6d97;
 }
 
 @-webkit-keyframes animate-loading {
